@@ -1,3 +1,4 @@
+/*
 const mineflayer = require('mineflayer');
 const keypress = require('keypress');
 
@@ -69,6 +70,31 @@ process.stdin.on('keyup', (ch, key) => {
         break;
     }
   }
+});
+
+bot.on('error', (err) => {
+  console.log(`Error: ${err}`);
+});
+
+bot.on('end', () => {
+  console.log('Bot has disconnected from the server.');
+});
+*/
+
+const mineflayer = require('mineflayer');
+
+const serverIp = 'alastrantia.aternos.me';
+const serverPort = 43968;
+const username = 'ideleeeebot';
+
+const bot = mineflayer.createBot({
+  host: serverIp,
+  port: serverPort,
+  username: username,
+});
+
+bot.on('spawn', () => {
+  console.log(`Bot has spawned in the server: ${serverIp}:${serverPort}`);
 });
 
 bot.on('error', (err) => {
